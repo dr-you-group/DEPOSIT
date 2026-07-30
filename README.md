@@ -1,4 +1,4 @@
-\# DEPOSIT — Phase 5 Validation
+# DEPOSIT — Phase 5 Validation
 
 Analysis code and materials for the quantitative validation (Phase 5) of the
 **DEPOSIT** checklist, a FAIR-based framework that helps researchers self-assess
