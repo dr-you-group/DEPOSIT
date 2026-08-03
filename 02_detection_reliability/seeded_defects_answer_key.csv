@@ -1,31 +1,28 @@
-﻿defect_id,file,stage,checklist_item_id,field,excel_cell,defect_type,difficulty,is_trap,description,seeded_value,signature
-KBI-01,KBI,2,B1005,Patient ID,H5,PHI (name),obvious,,Patient ID에 가명 대신 실명 잔존 (SUBJ001의 실제 신원),Kim Minjun,kim\s*min\s*jun|kimminjun|김민준
-KBI-02,KBI,2,B1006,Patient ID,H6,PHI (RRN),obvious,,Patient ID에 주민등록번호 병기,880201-2xxxxxx,880201
-KBI-03,KBI,2,B1018,Raw data,C7,PHI in file name,moderate,,실데이터 파일명에 실명 포함,KimMinjun_20240314.dcm,\.dcm|dcm\s*파일|파일명.*(kim|김)|kimminjun_2024
-KBI-04,KBI,2,B1017,Device serial number,X8,Device identifier,moderate,,장치 일련번호 잔존,SN-MR-118277,sn-?mr-?118277|일련\s*번호|serial
-KBI-05,KBI,2,B1005,Exp_date,R9,PHI (name) in field,moderate,,Exp_date 칸에 환자명 혼입,2024-03-14 (홍길동),홍길동
-KBI-06,KBI,2,B1007,Patient age,J10,Age 90+ not generalized,moderate,,90세 이상 미상한처리(연령 특이값),93,\b93\b|90세|고령|나이.*범주
-KBI-07,KBI,2,B1008,Data type,T11,Geographic identifier leaked,moderate,,값 칸에 시군구 지역정보 혼입,"Seoul, Gangnam-gu",gangnam|강남|seoul|지역|시군구
-KBI-08,KBI,3,C2004,Pulse sequence type,AJ12,Mandatory missing,obvious,,필수항목 Pulse sequence type 누락,(blank),pulse\s*sequence|필수.*(누락|공란|비어)|mandatory.*(missing|blank)
-KBI-09,KBI,3,C3009,(entire row),row 14,Duplicate record,moderate,,앞 행과 완전 중복 (SUBJ009 사본),duplicate of row 13,중복|duplicate
-KBI-10,KBI,4,D1002,Data type,T15,Outside controlled vocab,moderate,,Data type 통제어휘(T1/T2/fMRI…) 위반,MRI-scan,mri-?scan|통제\s*어휘|controlled\s*vocab|허용.*값|data\s*type.*(위반|벗어)
-KBI-11,KBI,4,D4001,Exp_date,R16,Non-ISO date,moderate,,날짜 포맷 비표준(YYYY-MM-DD 아님),03/15/2024,03/15/2024|03\.15|날짜.*형식|date.*format|포맷.*불일치
-KBI-T1,KBI,2,(none),Patient ID,H17,TRAP: valid pseudonym,-,TRAP-normal,함정: 정상 가명 ID (개인정보 아님),SUBJ013,
-KRA-01,KRA,2,B1006,sample name,A10,PHI (RRN),obvious,,sample name에 주민등록번호,880101-1234567,880101
-KRA-02,KRA,2,B1005,title,C11,PHI (name),moderate,,title에 실명 포함,...Kim Minjun,kim\s*min\s*jun|kimminjun|김민준
-KRA-03,KRA,2,B3010,raw file,L12,PHI in file name,moderate,,원시데이터 파일명에 실명,ParkJiSoo_...fastq.gz,parkjisoo|park\s*ji\s*soo|박지수|fastq.*이름|파일명
-KRA-04,KRA,2,B1005,library name,B13,PHI (name),moderate,,library name에 실명 혼입,lib_홍길동,홍길동|lib_
-KRA-05,KRA,2,B1005,title,C14,Cross-modal re-ID,moderate,,가명(SUBJ005)에 실명 병기 → 타 파일과 대조 시 재식별,SUBJ005 (이수진),이수진|subj005
-KRA-06,KRA,2,B1015,library construction protocol,J15,PHI (email),moderate,,프로토콜 설명에 담당자 이메일 노출,hjkim@yuhs.ac,hjkim|yuhs\.ac|이메일|email|@
-KRA-07,KRA,2,B1013,sample name,A16,PHI (phone),obvious,,sample name에 휴대폰번호 결합,010-2345-6789,010-?2345-?6789|휴대폰|연락처|전화
-KRA-08,KRA,3,C2004,platform,H17,Mandatory missing,obvious,,필수항목 platform 누락,(blank),platform.*(누락|공란|비어|missing)|필수.*(누락|공란)
-KRA-09,KRA,3,C3009,(entire row),row 19,Duplicate record,moderate,,앞 행과 완전 중복 (SUBJ009 사본),duplicate of row 18,중복|duplicate
-KRA-10,KRA,4,D1002,strategy,D20,Outside controlled vocab,moderate,,strategy 통제어휘 위반(WGS 아님),WholeGenome,wholegenome|whole\s*genome|strategy.*(위반|벗어|불일치)|통제\s*어휘
-KRA-11,KRA,4,D4003,platform,H21,Inconsistent case,subtle,,platform 대소문자 불일치,illumina,illumina|대소문자|uppercase|lowercase|case
-KRA-T1,KRA,2,(none),sample name,A22,TRAP: valid pseudonym,-,TRAP-normal,함정: 정상 가명 ID,SUBJ013,
-GeNA-01,GeNA,2,B1006,제목,E5,PHI (name/RRN),obvious,,제목에 실명·주민번호,김민준 (880101-1234567),김민준|880101
-GeNA-02,GeNA,2,B1013,추가 설명,G6,PHI (phone),obvious,,추가설명에 전화번호,010-2345-6789,010-?2345-?6789|연락처|전화|휴대폰
-GeNA-03,GeNA,2,B1018,파일,I7,PHI in file name,moderate,,파일명에 실명 포함 → KRA와 동일 인물 재식별,ParkJiSoo_clinical.csv,parkjisoo|park\s*ji\s*soo|clinical\.csv|파일명
-GeNA-04,GeNA,3,C2004,범주,B8,Mandatory missing,obvious,,필수항목 범주 누락,(blank),범주.*(누락|공란|비어)|필수.*(누락|공란)|category.*missing
-GeNA-05,GeNA,4,D4001,공개 날짜,L9,Non-ISO date,moderate,,공개날짜 포맷 비표준,2026/12/31,2026/12/31|날짜.*형식|date.*format|포맷
-GeNA-T1,GeNA,2,(none),샘플명,A10,TRAP: valid pseudonym,-,TRAP-normal,함정: 정상 가명 ID,SUBJ006,
+﻿defect_id,file,stage,checklist_item_id,field,excel_cell,defect_type,description,seeded_value
+KBI-01,KBI,2,B1005,Patient ID,H5,PHI (name),Real name left in Patient ID field,Kim Minjun
+KBI-02,KBI,2,B1017,Device serial number,X6,Device identifier,Device serial number retained,SN-MR-118277
+KBI-03,KBI,2,B1018,Raw data,C7,PHI in file name,Real name in raw-data file name,KimMinjun_20240314.dcm
+KBI-04,KBI,2,B1005,Exp_date,R8,PHI (name) in field,Patient name embedded in Exp_date field,2024-03-14 (홍길동)
+KBI-05,KBI,3,C2004,Pulse sequence type,AJ9,Mandatory missing,Mandatory field (Pulse sequence type) missing,(blank)
+KBI-06,KBI,3,C3004,Patient age,J10,Out-of-range,Age of 250 (out of plausible range),250
+KBI-07,KBI,3,C3009,(entire row),row 12,Duplicate record,Duplicate record (copy of preceding row),duplicate of row 11
+KBI-08,KBI,3,C3004,Magnetic field strength,AC13,Implausible value,Magnetic field strength of 0 (implausible value),0
+KBI-09,KBI,4,D1002,Data type,T14,Outside controlled vocab,Data type outside controlled vocabulary (MRI-scan),MRI-scan
+KBI-10,KBI,4,D4001,Exp_date,R15,Non-ISO date,Non-ISO date format,03/15/2024
+KBI-11,KBI,4,D3001,Magnetic field strength,AC16,Unit not standardized,Magnetic field strength unit not standardized (3 Tesla),3 Tesla
+KRA-01,KRA,2,B1006,sample name,A10,PHI (RRN),Resident registration number in sample name,880101-1234567
+KRA-02,KRA,2,B1005,title,C11,PHI (name),Real name included in title,...Kim Minjun
+KRA-03,KRA,2,B3010,raw file,L12,PHI in file name,Real name in raw-data file name,PatientKim_G003_R1.fastq.gz
+KRA-04,KRA,2,B1005,library name,B13,PHI (name),Real name embedded in library name,lib_홍길동
+KRA-05,KRA,3,C2004,platform,H14,Mandatory missing,Mandatory field (platform) missing,(blank)
+KRA-06,KRA,3,C3009,(entire row),row 16,Duplicate record,Duplicate record (copy of preceding row),duplicate of row 15
+KRA-07,KRA,3,C3003,instrument model,I17,Data entry error,Invalid value in instrument model,unknown-xyz
+KRA-08,KRA,3,C2004,filetype,K18,Mandatory missing,Mandatory field (filetype) missing,(blank)
+KRA-09,KRA,4,D1002,strategy,D19,Outside controlled vocab,Strategy outside controlled vocabulary (WholeGenome),WholeGenome
+KRA-10,KRA,4,D1002,layout,G20,Outside controlled vocab,Layout outside controlled vocabulary (paired-end),paired-end
+KRA-11,KRA,4,D4003,platform,H21,Inconsistent case,Inconsistent case in platform (illumina),illumina
+GeNA-01,GeNA,2,B1006,Title,E5,PHI (name/RRN),Real name and resident registration number in title,김민준 (880101-1234567)
+GeNA-02,GeNA,2,B1013,Supplementary description,G6,PHI (phone),Phone number in supplementary description,010-2345-6789
+GeNA-03,GeNA,3,C2004,Category,B7,Mandatory missing,Mandatory field (category) missing,(blank)
+GeNA-04,GeNA,3,C5002,Human-derived data (Y/N),D8,Outside code set (Y/N),Human-derived-data flag not Y/N (Maybe),Maybe
+GeNA-05,GeNA,4,D4001,Release date,L9,Non-ISO date,Non-ISO date format in release date,2026/12/31
