@@ -10,8 +10,8 @@ Validation has two parts:
 
 | Folder | Phase | What it evaluates |
 |--------|-------|-------------------|
-| [`Phase5a_cvi/`](Phase5a_cvi/) | 5a — Content validity | Whether experts judge the checkpoints relevant, clear, and essential (I-CVI, S-CVI, modified κ, CVR) |
-| [`Phase5b_detection_reliability/`](Phase5b_detection_reliability/) | 5b — Detection & reliability | Whether raters using the checklist detect seeded defects, and do so consistently (sensitivity, Fleiss' κ, Gwet's AC1) |
+| [`01_content_validity/`](01_content_validity/) | 5a — Content validity | Whether experts judge the checkpoints relevant, clear, and essential (I-CVI, S-CVI, modified κ, CVR) |
+| [`02_detection_reliability/`](02_detection_reliability/) | 5b — Detection & reliability | Whether raters using the checklist detect seeded defects, and do so consistently (sensitivity, Fleiss' κ, Gwet's AC1) |
 
 ## Setup
 ```bash
