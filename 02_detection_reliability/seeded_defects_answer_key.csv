@@ -1,28 +1,28 @@
-﻿defect_id,file,stage,checklist_item_id,field,excel_cell,defect_type,description,seeded_value
-KBI-01,KBI,2,B1005,Patient ID,H5,PHI (name),Real name left in Patient ID field,Kim Minjun
-KBI-02,KBI,2,B1017,Device serial number,X6,Device identifier,Device serial number retained,SN-MR-118277
-KBI-03,KBI,2,B1018,Raw data,C7,PHI in file name,Real name in raw-data file name,KimMinjun_20240314.dcm
-KBI-04,KBI,2,B1005,Exp_date,R8,PHI (name) in field,Patient name embedded in Exp_date field,2024-03-14 (홍길동)
-KBI-05,KBI,3,C2004,Pulse sequence type,AJ9,Mandatory missing,Mandatory field (Pulse sequence type) missing,(blank)
-KBI-06,KBI,3,C3004,Patient age,J10,Out-of-range,Age of 250 (out of plausible range),250
-KBI-07,KBI,3,C3009,(entire row),row 12,Duplicate record,Duplicate record (copy of preceding row),duplicate of row 11
-KBI-08,KBI,3,C3004,Magnetic field strength,AC13,Implausible value,Magnetic field strength of 0 (implausible value),0
-KBI-09,KBI,4,D1002,Data type,T14,Outside controlled vocab,Data type outside controlled vocabulary (MRI-scan),MRI-scan
-KBI-10,KBI,4,D4001,Exp_date,R15,Non-ISO date,Non-ISO date format,03/15/2024
-KBI-11,KBI,4,D3001,Magnetic field strength,AC16,Unit not standardized,Magnetic field strength unit not standardized (3 Tesla),3 Tesla
-KRA-01,KRA,2,B1006,sample name,A10,PHI (RRN),Resident registration number in sample name,880101-1234567
-KRA-02,KRA,2,B1005,title,C11,PHI (name),Real name included in title,...Kim Minjun
-KRA-03,KRA,2,B3010,raw file,L12,PHI in file name,Real name in raw-data file name,PatientKim_G003_R1.fastq.gz
-KRA-04,KRA,2,B1005,library name,B13,PHI (name),Real name embedded in library name,lib_홍길동
-KRA-05,KRA,3,C2004,platform,H14,Mandatory missing,Mandatory field (platform) missing,(blank)
-KRA-06,KRA,3,C3009,(entire row),row 16,Duplicate record,Duplicate record (copy of preceding row),duplicate of row 15
-KRA-07,KRA,3,C3003,instrument model,I17,Data entry error,Invalid value in instrument model,unknown-xyz
-KRA-08,KRA,3,C2004,filetype,K18,Mandatory missing,Mandatory field (filetype) missing,(blank)
-KRA-09,KRA,4,D1002,strategy,D19,Outside controlled vocab,Strategy outside controlled vocabulary (WholeGenome),WholeGenome
-KRA-10,KRA,4,D1002,layout,G20,Outside controlled vocab,Layout outside controlled vocabulary (paired-end),paired-end
-KRA-11,KRA,4,D4003,platform,H21,Inconsistent case,Inconsistent case in platform (illumina),illumina
-GeNA-01,GeNA,2,B1006,Title,E5,PHI (name/RRN),Real name and resident registration number in title,김민준 (880101-1234567)
-GeNA-02,GeNA,2,B1013,Supplementary description,G6,PHI (phone),Phone number in supplementary description,010-2345-6789
-GeNA-03,GeNA,3,C2004,Category,B7,Mandatory missing,Mandatory field (category) missing,(blank)
-GeNA-04,GeNA,3,C5002,Human-derived data (Y/N),D8,Outside code set (Y/N),Human-derived-data flag not Y/N (Maybe),Maybe
-GeNA-05,GeNA,4,D4001,Release date,L9,Non-ISO date,Non-ISO date format in release date,2026/12/31
+﻿defect_id,file,stage,field,excel_cell,defect_type,description,seeded_value
+KBI-01,KBI,2,Patient ID,H5,PHI: name,Real name in Patient ID field,Kim Minjun
+KBI-02,KBI,2,Patient ID,H6,PHI: resident registration no.,Resident registration number in Patient ID field,SUBJ002 / 880201-2xxxxxx
+KBI-03,KBI,2,Raw data (file name),C7,PHI: name in file name,Real name embedded in raw-data file name,KimMinjun_20240314.dcm
+KBI-04,KBI,2,Exp_date,R9,PHI: name in date field,Real name embedded in Exp_date field,2024-03-14 (홍길동)
+KBI-05,KBI,2,Patient age,J10,Age 90+ not generalized,Age of 93 not generalized to the 90+ category (SUBJ006),93
+KBI-06,KBI,2,Device serial number,X8,Device identifier retained,Device serial number retained (SUBJ004),SN-MR-118277
+KBI-07,KBI,2,Data type,T11,Geographic identifier in field,Geographic identifier embedded in Data type field,"T1 (Seoul, Gangnam-gu)"
+KBI-08,KBI,3,Pulse sequence type,AJ12,Mandatory field missing,Mandatory field (Pulse sequence type) missing (SUBJ008),(blank)
+KBI-09,KBI,3,(whole row),A13:A14,Duplicate record,Duplicate record — SUBJ009 row repeated,SUBJ009 (rows 13-14)
+KBI-10,KBI,4,Data type,T15,Controlled-vocabulary violation,Data type outside controlled vocabulary (should be a valid MR type),MRI-scan
+KBI-11,KBI,4,Exp_date,R16,Non-ISO date format,Non-ISO date format,03/15/2024
+KRA-01,KRA,2,sample name,A10,PHI: resident registration no.,Resident registration number in sample name (SUBJ001),880101-1234567
+KRA-02,KRA,2,title,C11,PHI: name,Real name in title (SUBJ002),WGS of patient Kim Minjun
+KRA-03,KRA,2,raw file (file name),L12,PHI: name in file name,Real name in raw-file name (SUBJ003),ParkJiSoo_G003_R1.fastq.gz
+KRA-04,KRA,2,library name,B13,PHI: name,Real name embedded in library name (SUBJ004),lib_홍길동
+KRA-05,KRA,2,title,C14,PHI: name,Real name in title parenthesis (SUBJ005),WGS of SUBJ005 (환자: 이수진)
+KRA-06,KRA,2,library construction protocol,J15,PHI: email,Email address (PHI) in protocol field (SUBJ006),protocol; contact hjkim@yuhs.ac
+KRA-07,KRA,2,sample name,A16,PHI: phone number,Phone number in sample name (SUBJ007),SUBJ007_010-2345-6789
+KRA-08,KRA,3,platform,H17,Mandatory field missing,Mandatory field (platform) missing (SUBJ008),(blank)
+KRA-09,KRA,3,(whole row),A18:A19,Duplicate record,Duplicate record — SUBJ009 row repeated,SUBJ009 (rows 18-19)
+KRA-10,KRA,4,strategy,D20,Controlled-vocabulary violation,Strategy outside controlled vocabulary (should be WGS) (SUBJ011),WholeGenome
+KRA-11,KRA,4,platform,H21,Inconsistent case,Inconsistent case in platform value (SUBJ012),illumina
+GeNA-01,GeNA,2,제목 (Title),E5,PHI: name + RRN,Real name and resident registration number in title (SUBJ001),김민준 환자 임상데이터 (880101-1234567)
+GeNA-02,GeNA,2,추가 설명 (Description),G6,PHI: phone number,Phone number in description field (SUBJ002),환자 연락처 010-2345-6789
+GeNA-03,GeNA,2,파일 (File name),I7,PHI: name in file name,Real name in file name (SUBJ003),ParkJiSoo_clinical.csv
+GeNA-04,GeNA,3,범주 (Category),B8,Mandatory field missing,Mandatory field (Category) missing (SUBJ004),(blank)
+GeNA-05,GeNA,4,공개 날짜 (Release date),L9,Non-ISO date format,Non-ISO date format (SUBJ005),2026/12/31
